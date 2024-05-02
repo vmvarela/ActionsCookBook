@@ -22,8 +22,7 @@ jobs:
     steps:
       - run: |
           echo "Hello ${{ vars.WHO_TO_GREET }} 👋 from ${{ github.actor }}"
-          sec=$(echo ${{ secrets.MY_SECRET }} | sed 's/./& /g')
-          echo "My secret is 🤫 '$sec'"
+          echo "My secret is 🤫 '$(echo ${{ secrets.MY_SECRET }} | sed 's/./& /g')'."
 
   Load-Test:
     runs-on: ubuntu-latest
@@ -32,8 +31,7 @@ jobs:
     steps:
       - run: |
           echo "Hello ${{ vars.WHO_TO_GREET }} 👋 from ${{ github.actor }}"
-          sec=$(echo ${{ secrets.MY_SECRET }} | sed 's/./& /g')
-          echo "My secret is 🤫 '$sec'"
+          echo "My secret is 🤫 '$(echo ${{ secrets.MY_SECRET }} | sed 's/./& /g')'."
 
   Production:
     runs-on: ubuntu-latest
@@ -44,6 +42,5 @@ jobs:
     steps:
       - run: |
           echo "Hello ${{ vars.WHO_TO_GREET }} 👋 from ${{ github.actor }}"
-          sec=$(echo ${{ secrets.MY_SECRET }} | sed 's/./& /g')
-          echo "My secret is 🤫 '$sec'"
+          echo "My secret is 🤫 '$(echo ${{ secrets.MY_SECRET }} | sed 's/./& /g')'."
   
