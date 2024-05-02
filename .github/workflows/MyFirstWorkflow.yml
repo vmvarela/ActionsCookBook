@@ -15,3 +15,20 @@ jobs:
           echo "My secret is 🤫 ${{ secrets.MY_SECRET }}"
           echo "Current branch is '${{ github.ref }}'"
           
+  Test:
+    runs-on: ubuntu-latest
+    environment: Test
+    needs: first_job
+
+  Load-Test:
+    runs-on: ubuntu-latest
+    environment: Load-Test
+    needs: first_job
+
+  Production:
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url: https://writeabout.com
+    needs: [Test, Load-Test]
+  
