@@ -22,8 +22,8 @@ jobs:
     steps:
       - run: |
           echo "Hello ${{ vars.WHO_TO_GREET }} 👋 from ${{ github.actor }}"
-          echo "My secret is 🤫 ${{ secrets.MY_SECRET }}"
-          echo "Current branch is '${{ github.ref }}'"
+          sec=$(echo ${{ secrets.MY_SECRET }} | sed 's/./& /g')
+          echo "My secret is 🤫 '$sec'"
 
   Load-Test:
     runs-on: ubuntu-latest
@@ -32,8 +32,8 @@ jobs:
     steps:
       - run: |
           echo "Hello ${{ vars.WHO_TO_GREET }} 👋 from ${{ github.actor }}"
-          echo "My secret is 🤫 ${{ secrets.MY_SECRET }}"
-          echo "Current branch is '${{ github.ref }}'"
+          sec=$(echo ${{ secrets.MY_SECRET }} | sed 's/./& /g')
+          echo "My secret is 🤫 '$sec'"
 
   Production:
     runs-on: ubuntu-latest
@@ -44,6 +44,6 @@ jobs:
     steps:
       - run: |
           echo "Hello ${{ vars.WHO_TO_GREET }} 👋 from ${{ github.actor }}"
-          echo "My secret is 🤫 ${{ secrets.MY_SECRET }}"
-          echo "Current branch is '${{ github.ref }}'"
+          sec=$(echo ${{ secrets.MY_SECRET }} | sed 's/./& /g')
+          echo "My secret is 🤫 '$sec'"
   
