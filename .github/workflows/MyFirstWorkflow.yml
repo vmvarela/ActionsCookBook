@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  fist_job:
+  first_job:
     name: My first job
     runs-on: ubuntu-latest
     steps:
