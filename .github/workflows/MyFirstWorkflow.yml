@@ -19,11 +19,21 @@ jobs:
     runs-on: ubuntu-latest
     environment: Test
     needs: first_job
+    steps:
+      - run: |
+          echo "Hello ${{ vars.WHO_TO_GREET }} 👋 from ${{ github.actor }}"
+          echo "My secret is 🤫 ${{ secrets.MY_SECRET }}"
+          echo "Current branch is '${{ github.ref }}'"
 
   Load-Test:
     runs-on: ubuntu-latest
     environment: Load-Test
     needs: first_job
+    steps:
+      - run: |
+          echo "Hello ${{ vars.WHO_TO_GREET }} 👋 from ${{ github.actor }}"
+          echo "My secret is 🤫 ${{ secrets.MY_SECRET }}"
+          echo "Current branch is '${{ github.ref }}'"
 
   Production:
     runs-on: ubuntu-latest
@@ -31,4 +41,9 @@ jobs:
       name: Production
       url: https://writeabout.com
     needs: [Test, Load-Test]
+    steps:
+      - run: |
+          echo "Hello ${{ vars.WHO_TO_GREET }} 👋 from ${{ github.actor }}"
+          echo "My secret is 🤫 ${{ secrets.MY_SECRET }}"
+          echo "Current branch is '${{ github.ref }}'"
   
